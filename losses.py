@@ -16,7 +16,7 @@ class SupConLoss(nn.Module):
         super(SupConLoss, self).__init__()
         self.temperature = temperature
         self.contrast_mode = contrast_mode
-        self.base_temperature = base_temperature
+        self.base_temperature = base_temperature*2
 
     def forward(self, features, labels=None, mask=None):
         """Compute loss for model. If both `labels` and `mask` are None,
