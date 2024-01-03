@@ -178,7 +178,7 @@ def set_loader(opt):
 
 
 def set_model(opt):
-    if model == 'new':
+    if opt.model == 'new':
         model = Restormer()
     else:
         model = SupConResNet(name=opt.model)
