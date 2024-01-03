@@ -15,6 +15,7 @@ from util import TwoCropTransform, AverageMeter
 from util import adjust_learning_rate, warmup_learning_rate
 from util import set_optimizer, save_model
 from networks.resnet_big import SupConResNet
+from networks.archs.restormer_arch import Restormer
 from losses import SupConLoss
 
 try:
@@ -177,7 +178,10 @@ def set_loader(opt):
 
 
 def set_model(opt):
-    model = SupConResNet(name=opt.model)
+    if model == 'new':
+        model = Restormer()
+    else:
+        model = SupConResNet(name=opt.model)
     criterion = SupConLoss(temperature=opt.temp)
 
     # enable synchronized Batch Normalization
