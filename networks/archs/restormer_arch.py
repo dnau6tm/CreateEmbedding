@@ -281,5 +281,5 @@ class Restormer(nn.Module):
         #     out_dec_level1 = self.output(out_dec_level1) + inp_img
 
 
-        return torch.flatten(latent, dim=1)
+        return torch.flatten(latent, start_dim=1)
 
